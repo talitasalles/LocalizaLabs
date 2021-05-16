@@ -36,6 +36,9 @@ namespace LocalizaCS.Controllers
 
             var tbClientes = await _context.TbClientes
                 .FirstOrDefaultAsync(m => m.Id == id);
+            tbClientes.Cpf = Convert.ToUInt64(tbClientes.Cpf).ToString(@"000\.000\.000\-00");
+            tbClientes.Cep = Convert.ToUInt64(tbClientes.Cep).ToString(@"00000\-000");
+
             if (tbClientes == null)
             {
                 return NotFound();
@@ -55,8 +58,12 @@ namespace LocalizaCS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Aniversario,Cep,Logradouro,Nro,Complemento,Cidade,Estado")] TbClientes tbClientes)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Aniversario,Cep,Logradouro,Nro,Complemento,Bairro,Cidade,Estado")] TbClientes tbClientes)
         {
+            tbClientes.Cep = tbClientes.Cep.Replace("-", "");
+            tbClientes.Cpf = tbClientes.Cpf.Replace(".", "").Replace("-", "");
+            tbClientes.Nome = tbClientes.Nome.ToUpper();
+
             if (ModelState.IsValid)
             {
                 _context.Add(tbClientes);
@@ -87,12 +94,16 @@ namespace LocalizaCS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Aniversario,Cep,Logradouro,Nro,Complemento,Cidade,Estado")] TbClientes tbClientes)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Aniversario,Cep,Logradouro,Nro,Complemento,Bairro,Cidade,Estado")] TbClientes tbClientes)
         {
             if (id != tbClientes.Id)
             {
                 return NotFound();
             }
+
+            tbClientes.Cep = tbClientes.Cep.Replace("-", "");
+            tbClientes.Cpf = tbClientes.Cpf.Replace(".", "").Replace("-", "");
+            tbClientes.Nome = tbClientes.Nome.ToUpper();
 
             if (ModelState.IsValid)
             {
@@ -149,6 +160,14 @@ namespace LocalizaCS.Controllers
         private bool TbClientesExists(int id)
         {
             return _context.TbClientes.Any(e => e.Id == id);
+        }
+
+        public IActionResult TbClientesCPFExists(string cpf, int id)
+        {
+            if (_context.TbClientes.Any(e => e.Cpf == cpf.Replace(".","").Replace("-","") && e.Id != id))
+                return Json(data: "CPF já cadastrado!");
+
+            return Json(data: true);
         }
     }
 }

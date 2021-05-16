@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using LocalizaCS.Data;
 using LocalizaCS.Models;
+using Microsoft.Data.SqlClient;
 
 namespace LocalizaCS.Data
 {
-    public class ValidacoesController {
-		public static class ValidaCPF
+    public class ValidacoesController
+	{
+
+		public class ValidaCPF
 		{
+
 			public static bool IsCpf(string cpf)
 			{
 				int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -68,6 +73,6 @@ namespace LocalizaCS.Data
 				digito = digito + resto.ToString();
 				return cpf.EndsWith(digito);
 			}
-		}
+        }
 	}
 }

@@ -36,7 +36,10 @@ namespace LocalizaCS
                                                        .AddEntityFrameworkStores<LocalizaCSContext>()
                                                        .AddDefaultTokenProviders();
 
-            services.AddControllersWithViews();            
+            services.AddControllersWithViews();
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

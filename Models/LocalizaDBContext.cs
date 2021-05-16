@@ -43,6 +43,10 @@ namespace LocalizaCS.Models
                     .HasMaxLength(30)
                     .IsFixedLength();
 
+                entity.Property(e => e.Bairro)
+                    .HasMaxLength(30)
+                    .IsFixedLength();
+
                 entity.Property(e => e.Complemento)
                     .HasMaxLength(10)
                     .IsFixedLength();
@@ -130,11 +134,13 @@ namespace LocalizaCS.Models
 
                 entity.Property(e => e.ValorHora).HasColumnType("decimal(15, 2)");
 
-                entity.HasOne(d => d.Marca)
+                entity.Property(e => e.MarcaId)
+                    .HasMaxLength(10);
+                /*entity.HasOne(d => d.Marca)
                     .WithMany(p => p.TbVeiculo)
                     .HasForeignKey(d => d.MarcaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tbVeiculo_ToTbMarcaVeiculo");
+                    .HasConstraintName("FK_tbVeiculo_ToTbMarcaVeiculo");*/
 
                 entity.HasOne(d => d.Modelo)
                     .WithMany(p => p.TbVeiculo)
@@ -147,17 +153,17 @@ namespace LocalizaCS.Models
             {
                 entity.ToTable("tbLocacoes");
 
-                /*entity.HasOne(d => d.Nome)
-                    .WithMany(p => p.TbCliente)
+                entity.HasOne(d => d.Cliente)
+                    .WithMany(p => p.TbLocacoes)
                     .HasForeignKey(d => d.ClienteId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_tbLocacoes_ToTbClientes");
 
-                entity.HasOne(d => d.Id)
-                    .WithMany(p => p.TbVeiculo)
+                entity.HasOne(d => d.Veiculo)
+                    .WithMany(p => p.TbLocacoes)
                     .HasForeignKey(d => d.VeiculoId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tbLocacoes_ToTbVeiculo");*/
+                    .HasConstraintName("FK_tbLocacoes_ToTbVeiculo");
 
                 entity.Property(e => e.Inicio).HasColumnType("datetime");
 

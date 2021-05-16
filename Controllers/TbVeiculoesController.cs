@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,9 +23,31 @@ namespace LocalizaCS.Views.TbVeiculos
         // GET: TbVeiculoes
         public async Task<IActionResult> Index()
         {
-            var localizaCSContext = _context.TbVeiculo.Include(t => t.Marca).Include(t => t.Modelo);
+            var localizaCSContext = _context.TbVeiculo.Include(t => t.Modelo);
             return View(await localizaCSContext.ToListAsync());
         }
+
+        /*public static IEnumerable<SelectListItem> ModeloList()
+        {
+            LocalizaDBContext db = new LocalizaDBContext();
+            List<TbModeloVeiculo> items = db.TbModeloVeiculo.OrderBy(x => x.Marca).ThenBy(x => x.Modelo).ToList();
+            //return new SelectList(items, "Id", "Modelo", "TbMarcaVeiculo.Marca");
+            return new SelectList(db.TbModeloVeiculo.OrderBy(x => x.Marca), "Id", "Modelo", "TbMarcaVeiculo.Marca", null);
+        }
+
+        public SelectList ModeloList()
+        {
+
+            var group1 = new SelectListGroup() { Name = "Group 1" };
+            var group2 = new SelectListGroup() { Name = "Group 2" };
+
+            var items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem() { Value = "1", Text = "Item 1", Group = group1 });
+            items.Add(new SelectListItem() { Value = "2", Text = "Item 2", Group = group2 });
+
+            return new SelectList(items, "Value", "Text");
+        }*/
 
         // GET: TbVeiculoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -35,7 +58,6 @@ namespace LocalizaCS.Views.TbVeiculos
             }
 
             var tbVeiculo = await _context.TbVeiculo
-                .Include(t => t.Marca)
                 .Include(t => t.Modelo)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tbVeiculo == null)
@@ -49,8 +71,9 @@ namespace LocalizaCS.Views.TbVeiculos
         // GET: TbVeiculoes/Create
         public IActionResult Create()
         {
-            ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca");
-            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo");
+            //ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca");
+            //ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo");
+            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>().Include(t => t.Marca).OrderBy(x => x.Marca), "Id", "Modelo", "Marca", "Marca.Marca");
 
             return View();
         }
@@ -62,14 +85,17 @@ namespace LocalizaCS.Views.TbVeiculos
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Placa,MarcaId,ModeloId,Ano,ValorHora,Combustivel,LtPortaMala,Categoria")] TbVeiculo tbVeiculo)
         {
+            tbVeiculo.Placa = tbVeiculo.Placa.ToUpper();
+
             if (ModelState.IsValid)
             {
                 _context.Add(tbVeiculo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca", tbVeiculo.MarcaId);
-            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo", tbVeiculo.ModeloId);
+            //ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca");
+            //ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo");
+            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>().Include(t => t.Marca).OrderBy(x => x.Marca), "Id", "Modelo", "Marca", "Marca.Marca");
             return View(tbVeiculo);
         }
 
@@ -86,8 +112,9 @@ namespace LocalizaCS.Views.TbVeiculos
             {
                 return NotFound();
             }
-            ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca", tbVeiculo.MarcaId);
-            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo", tbVeiculo.ModeloId);
+            //ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca");
+            //ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo");
+            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>().Include(t => t.Marca).OrderBy(x => x.Marca), "Id", "Modelo", "Marca", "Marca.Marca");
             return View(tbVeiculo);
         }
 
@@ -102,6 +129,8 @@ namespace LocalizaCS.Views.TbVeiculos
             {
                 return NotFound();
             }
+
+            tbVeiculo.Placa = tbVeiculo.Placa.ToUpper();
 
             if (ModelState.IsValid)
             {
@@ -123,8 +152,9 @@ namespace LocalizaCS.Views.TbVeiculos
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca", tbVeiculo.MarcaId);
-            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo", tbVeiculo.ModeloId);
+            //ViewData["MarcaId"] = new SelectList(_context.Set<TbMarcaVeiculo>(), "Id", "Marca");
+            //ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>(), "Id", "Modelo");
+            ViewData["ModeloId"] = new SelectList(_context.Set<TbModeloVeiculo>().Include(t => t.Marca).OrderBy(x => x.Marca), "Id", "Modelo", "Marca", "Marca.Marca");
             return View(tbVeiculo);
         }
 
@@ -137,7 +167,6 @@ namespace LocalizaCS.Views.TbVeiculos
             }
 
             var tbVeiculo = await _context.TbVeiculo
-                .Include(t => t.Marca)
                 .Include(t => t.Modelo)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tbVeiculo == null)
@@ -162,6 +191,14 @@ namespace LocalizaCS.Views.TbVeiculos
         private bool TbVeiculoExists(int id)
         {
             return _context.TbVeiculo.Any(e => e.Id == id);
+        }
+
+        public IActionResult TbVeiculoPlacaExists(string placa, int id)
+        {
+            if (_context.TbVeiculo.Any(e => e.Placa == placa.ToUpper() && e.Id != id))
+                return Json(data: "Placa já cadastrada!");
+
+            return Json(data: true);
         }
     }
 }

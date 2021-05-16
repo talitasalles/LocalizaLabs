@@ -10,7 +10,7 @@ namespace LocalizaCS.Data
 {
     public class LocalizaCSContext : DbContext
     {
-        public LocalizaCSContext (DbContextOptions<LocalizaCSContext> options)
+        public LocalizaCSContext(DbContextOptions<LocalizaCSContext> options)
             : base(options)
         {
         }
@@ -25,7 +25,7 @@ namespace LocalizaCS.Data
             }
         }
 
-    public DbSet<LocalizaCS.Models.TbClientes> TbClientes { get; set; }
+        public DbSet<LocalizaCS.Models.TbClientes> TbClientes { get; set; }
 
         public DbSet<LocalizaCS.Models.TbOperadores> TbOperadores { get; set; }
 

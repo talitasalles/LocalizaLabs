@@ -1,0 +1,98 @@
+﻿@model LocalizaCS.Models.TbLocacoes
+
+@{
+    ViewData["Title"] = "Contrato";
+}
+
+
+<p>&nbsp;</p>
+
+<p style="text-align: center;"><span style="font-size:20px"><strong><u>CONTRATO DE LOCA&Ccedil;&Atilde;O DE VE&Iacute;CULO</u></strong></span></p>
+
+<p>&nbsp;</p>
+
+<p><strong>LOCADOR</strong>: <strong>@Html.DisplayFor(model => model.Cliente.Nome)</strong>, portador do CPF n&ordm; <strong>@Html.DisplayFor(model => model.Cliente.Cpf)</strong> residente e domiciliado na Rua <strong>@Html.DisplayFor(model => model.Cliente.Logradouro)</strong>, n&deg; <strong>@Html.DisplayFor(model => model.Cliente.Nro)</strong>, bairro <strong>@Html.DisplayFor(model => model.Cliente.Bairro)</strong>, munic&iacute;pio <strong>@Html.DisplayFor(model => model.Cliente.Cidade)</strong>, <strong>@Html.DisplayFor(model => model.Cliente.Estado)</strong>.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>LOCAT&Oacute;RIO: LOCALIZA</strong></p>
+
+<p>As partes acima identificadas t&ecirc;m, entre si, justo e acertado o presente Contrato de Loca&ccedil;&atilde;o de Autom&oacute;vel que se reger&aacute; pelas cl&aacute;usulas seguintes e pelas condi&ccedil;&otilde;es descritas no presente.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>1. CL&Aacute;USULA PRIMEIRA &ndash; DO OBJETO, PRAZO E USO</strong></p>
+
+<p><strong>1.1. </strong>O LOCADOR declara ser o leg&iacute;timo possuidor e/ou propriet&aacute;rio do ve&iacute;culo de modelo <strong>@Html.DisplayFor(model => model.Veiculo.Modelo)</strong>, marca <strong>@Html.DisplayFor(model => model.Veiculo.Marca)</strong>, ano <strong>@Html.DisplayFor(model => model.Veiculo.Ano)</strong>, placa <strong>@Html.DisplayFor(model => model.Veiculo.Placa)</strong>, em perfeito estado e que resolveu d&aacute;-lo em loca&ccedil;&atilde;o ao LOCAT&Aacute;RIO</p>
+
+<p><strong>1.1.1.</strong> Findo prazo acima estipulado, o mesmo poder&aacute; ser renovado atrav&eacute;s de aditivo ou outro instrumento contratual ou o ve&iacute;culo dever&aacute; ser devolvido ao LOCADOR nas mesmas condi&ccedil;&otilde;es em que estava quando o recebeu, ou seja, em perfeitas condi&ccedil;&otilde;es de uso, respondendo pelos danos ou preju&iacute;zos causados.</p>
+
+<p><strong>1.1.3. </strong>Caso o&nbsp;LOCAT&Aacute;RIO&nbsp;n&atilde;o restituir o autom&oacute;vel na data estipulada, dever&aacute; pagar, enquanto detiver em seu poder, o valor da loca&ccedil;&atilde;o que o LOCADOR&nbsp;arbitrar, e responder&aacute; pelo dano que o autom&oacute;vel venha a sofrer mesmo se proveniente de caso fortuito.</p>
+
+<p><strong>1.1.3.</strong> O bem locado somente ser&aacute; destinado a uso exclusivo no Sistema de Transporte Intermunicipal de Passageiros do Estado de Alagoas.</p>
+
+<p><strong>1.1.4.</strong> O bem locado apenas poder&aacute; ser dirigido pelo LOCAT&Aacute;RIO ou por seu motorista substituto cadastrado na ARSAL.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>2. CLA&Uacute;SULA SEGUNDA &ndash; DO VALOR</strong></p>
+
+<p><strong>2.1.</strong> O<strong> LOCAT&Aacute;RIO </strong>pagar&aacute; ao<strong> LOCADOR </strong>a t&iacute;tulo de loca&ccedil;&atilde;o o valor mensal de R$:...</p>
+
+<p><strong>2.1.1. </strong>O atraso no pagamento do acordo da cl&aacute;usula acima enseja multa de 5 % (cinco por cento) e juros de 1% (um por cento) ao dia.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>3. CLA&Uacute;SULA TERCEIRA &ndash; DAS OBRIGA&Ccedil;&Otilde;ES</strong></p>
+
+<p><strong>3.1.</strong> O LOCAT&Aacute;RIO dever&aacute; manter o ve&iacute;culo em perfeito estado de conserva&ccedil;&atilde;o, de ordem mec&acirc;nica, tape&ccedil;aria, funilaria e pneus, devendo entregar, com o t&eacute;rmino do contrato, o ve&iacute;culo e sua documenta&ccedil;&atilde;o ao LOCADOR nas mesmas condi&ccedil;&otilde;es em que recebeu.</p>
+
+<p><strong>3.2.</strong> &Eacute; de inteira responsabilidade do LOCAT&Aacute;RIO os d&eacute;bitos de qualquer natureza, com data posterior a assinatura do presente contrato e at&eacute; a data da rescis&atilde;o, sejam de multas de tr&acirc;nsito, taxa de licenciamento, seguro obrigat&oacute;rio, seguro do ve&iacute;culo, IPVA e outros relacionados ao ve&iacute;culo.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>4. CL&Aacute;USULA QUARTA - DA AUTORIZA&Ccedil;&Atilde;O</strong></p>
+
+<p><strong>4.1. </strong>O LOCADOR, desde j&aacute; autoriza o LOCAT&Aacute;RIO, &agrave; implanta&ccedil;&atilde;o da identifica&ccedil;&atilde;o visual e do sistema de monitoramento institu&iacute;do pela ARSAL.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>5. CL&Aacute;USULA QUINTA &ndash; DA RESCIS&Atilde;O </strong></p>
+
+<p><strong>5.1</strong>. A rescis&atilde;o, antes do vencimento contratual, por iniciativa de qualquer das partes dever&aacute; ser precedida de notifica&ccedil;&atilde;o expressa com anteced&ecirc;ncia m&iacute;nima de 60 (sessenta) dias a outra parte.</p>
+
+<p><strong>5.2. </strong>O LOCAT&Aacute;RIO, permission&aacute;rio/autorizado, fica obrigado a comunicar &agrave; ARSAL sobre a inten&ccedil;&atilde;o de rescis&atilde;o do presente contrato manifestada por qualquer das partes, com anteced&ecirc;ncia m&iacute;nima de 15 (quinze) dias.</p>
+
+<p><strong>5.3.</strong> O descumprimento de qualquer das cl&aacute;usulas por parte dos contratantes ensejar&aacute; a rescis&atilde;o deste instrumento e o devido pagamento de multa, pela parte inadimplente no valor de 3% (tr&ecirc;s por cento) do valor contratual.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>6. CL&Aacute;USULA SEXTA &ndash; DAS DISPOSI&Ccedil;&Otilde;ES GERAIS </strong></p>
+
+<p><strong>6.1.</strong> O LOCADOR e LOCAT&Aacute;RIO atestam que o ve&iacute;culo est&aacute; sendo entregue em perfeitas condi&ccedil;&otilde;es de uso, na data da assinatura do presente instrumento, mediante vistoria.</p>
+
+<p><strong>6.2.</strong> As partes contratantes elegem o foro de Macei&oacute;-AL, para dirimir qualquer a&ccedil;&atilde;o oriunda deste contrato.</p>
+
+<p>&nbsp;</p>
+
+<p>E por estarem justo e contratados, assinam o presente instrumento em 02 (duas) vias de igual teor e forma, na presen&ccedil;a de 02 (duas) testemunhas abaixo assinadas.</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align: center;">Belo Horizonte, @Html.DisplayFor(model => model.DataAtual.Day) de @Html.DisplayFor(model => model.Mes) de @Html.DisplayFor(model => model.DataAtual.Year)</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align: center;">_____________________________________________</p>
+
+<p style="text-align: center;"><strong>LOCADOR</strong></p>
+
+<p style="text-align: center;"><strong>Nome: @Html.DisplayFor(model => model.Cliente.Nome)</strong></p>
+
+<p style="text-align: center;"><strong>CPF: @Html.DisplayFor(model => model.Cliente.Cpf)</strong></p>
+
+<address>&nbsp;</address>
+
+<div style="text-align: center;">
+    <a asp-action="SaveDocument" asp-route-id="@Model.Id" class="btn btn-primary">Imprimir PDF</a>
+</div>

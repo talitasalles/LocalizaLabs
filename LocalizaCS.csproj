@@ -14,8 +14,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Contrato_2.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Castle.Windsor" Version="5.1.1" />
+    <PackageReference Include="cco.mvc.globalization.pt-br" Version="1.0.0" />
+    <PackageReference Include="ceTe.DynamicPDF.Converter.NET" Version="3.9.0" />
+    <PackageReference Include="ceTe.DynamicPDF.CoreSuite.NET" Version="11.11.0" />
+    <PackageReference Include="ceTe.DynamicPDF.HtmlConverter.NET" Version="1.6.0" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="EO.WebBrowser" Version="21.1.11" />
+    <PackageReference Include="InputMask" Version="5.0.5" />
+    <PackageReference Include="jQuery" Version="3.6.0" />
+    <PackageReference Include="jQuery.InputMask" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.Mvc.pt-br" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
@@ -29,6 +43,7 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="wwwroot\Contratos\" />
   </ItemGroup>
 
   <ItemGroup>

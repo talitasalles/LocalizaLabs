@@ -59,6 +59,8 @@ namespace LocalizaCS.Views.TbModeloVeiculos
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,MarcaId,Modelo")] TbModeloVeiculo tbModeloVeiculo)
         {
+            tbModeloVeiculo.Modelo = tbModeloVeiculo.Modelo.ToUpper();
+
             if (ModelState.IsValid)
             {
                 _context.Add(tbModeloVeiculo);
@@ -97,6 +99,8 @@ namespace LocalizaCS.Views.TbModeloVeiculos
             {
                 return NotFound();
             }
+
+            tbModeloVeiculo.Modelo = tbModeloVeiculo.Modelo.ToUpper();
 
             if (ModelState.IsValid)
             {

@@ -11,23 +11,22 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Placa" class="control-label"></label>
-                <input asp-for="Placa" class="form-control" />
+                <input style="text-transform: uppercase;" asp-for="Placa" class="form-control" />
                 <span asp-validation-for="Placa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MarcaId" class="control-label"></label>
-                <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaId"></select>
-            </div>
-            <div class="form-group">
                 <label asp-for="ModeloId" class="control-label"></label>
-                <select asp-for="ModeloId" class ="form-control" asp-items="ViewBag.ModeloId"></select>
+                <select asp-for="ModeloId" class="form-control" asp-items="ViewBag.ModeloId">
+                    <option value="">- Selecione o Modelo -</option>
+                </select>
+                <span asp-validation-for="ModeloId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Ano" class="control-label"></label>
-                <input asp-for="Ano" class="form-control" />
+                <input onkeypress="return event.charCode >= 48 && event.charCode <= 57" asp-for="Ano" class="form-control" />
                 <span asp-validation-for="Ano" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -38,6 +37,8 @@
             <div class="form-group">
                 <label asp-for="Combustivel" class="control-label"></label>
                 <select asp-for="Combustivel" class="form-control">
+                    <option value="">- Selecione o Combustível -</option>
+                    <option>Flex</option>
                     <option>Gasolina</option>
                     <option>Álcool</option>
                     <option>Diesel</option>
@@ -52,6 +53,7 @@
             <div class="form-group">
                 <label asp-for="Categoria" class="control-label"></label>
                 <select asp-for="Categoria" class="form-control">
+                    <option value="">- Selecione a Categoria -</option>
                     <option>Básico</option>
                     <option>Completo</option>
                     <option>Luxo</option>
@@ -66,7 +68,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar a Lista</a>
 </div>
 
 @section Scripts {

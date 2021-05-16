@@ -56,6 +56,8 @@ namespace LocalizaCS.Views.TbOperador
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Matricula")] TbOperadores tbOperadores)
         {
+            tbOperadores.Nome = tbOperadores.Nome.ToUpper();
+
             if (ModelState.IsValid)
             {
                 _context.Add(tbOperadores);
@@ -92,6 +94,8 @@ namespace LocalizaCS.Views.TbOperador
             {
                 return NotFound();
             }
+
+            tbOperadores.Nome = tbOperadores.Nome.ToUpper();
 
             if (ModelState.IsValid)
             {
