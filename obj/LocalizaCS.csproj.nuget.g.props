@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\talita.salles\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.9.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\talita.salles\.nuget\packages\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\DynamicPDF.Converter.Core.dll" Condition="Exists('$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\DynamicPDF.Converter.Core.dll')">
+      <NuGetPackageId>ceTe.DynamicPDF.Converter.NET</NuGetPackageId>
+      <NuGetPackageVersion>3.9.0</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>DPDFConverterService\DynamicPDF.Converter.Core.dll</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\DynamicPDF.Converter.Service.exe" Condition="Exists('$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\DynamicPDF.Converter.Service.exe')">
+      <NuGetPackageId>ceTe.DynamicPDF.Converter.NET</NuGetPackageId>
+      <NuGetPackageVersion>3.9.0</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>DPDFConverterService\DynamicPDF.Converter.Service.exe</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\DynamicPDF.Converter.Service.exe.config" Condition="Exists('$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\DynamicPDF.Converter.Service.exe.config')">
+      <NuGetPackageId>ceTe.DynamicPDF.Converter.NET</NuGetPackageId>
+      <NuGetPackageVersion>3.9.0</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>DPDFConverterService\DynamicPDF.Converter.Service.exe.config</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\Readme.txt" Condition="Exists('$(NuGetPackageRoot)cete.dynamicpdf.converter.net\3.9.0\contentFiles\any\any\DPDFConverterService\Readme.txt')">
+      <NuGetPackageId>ceTe.DynamicPDF.Converter.NET</NuGetPackageId>
+      <NuGetPackageVersion>3.9.0</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>DPDFConverterService\Readme.txt</Link>
+    </Content>
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\5.0.5\build\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\5.0.5\build\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.props')" />
+    <Import Project="$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\talita.salles\.nuget\packages\microsoft.codeanalysis.analyzers\2.9.4</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\talita.salles\.nuget\packages\microsoft.entityframeworkcore.tools\5.0.5</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\talita.salles\.nuget\packages\jquery\3.6.0</PkgjQuery>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\talita.salles\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
+  </PropertyGroup>
+</Project>
