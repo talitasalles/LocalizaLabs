@@ -86,6 +86,7 @@ namespace LocalizaCS.Controllers
             {
                 return NotFound();
             }
+            tbClientes.Nro = tbClientes.Nro.Trim();
             return View(tbClientes);
         }
 
